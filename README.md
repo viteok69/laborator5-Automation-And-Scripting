@@ -5,10 +5,10 @@
 > \
 > Verificat de Mihail Croitor
 
-**Objective**
+## Objective
 Învață să Creezi Playbook-uri Ansible pentru Automatizarea Configurării Serverelor
 
-**Prerequisites**
+## Prerequisites
 Această temă individuală se bazează pe Tema Individuală precedentă IW04.
 
 Creați un dosar numit lab05 în depozitul vostru GitHub pentru a stoca toate fișierele legate de această lucrare individuală.
@@ -18,7 +18,7 @@ De asemenea, ar trebui să aveți un depozit cu un proiect PHP care conține tes
 Copiați fișierele din lucrarea individuală precedentă lab04 în dosarul lab05.
 Această temă include, de asemenea, descrieri ale pașilor din temele individuale anterioare, marcate ca "Review" (Revizuire).
 
-**Assignment**
+## Assignment
 Cream un fisier compose.yaml cu urmatorul continut:
 
 ```bash
