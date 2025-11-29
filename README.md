@@ -20,7 +20,6 @@ Această temă include, de asemenea, descrieri ale pașilor din temele individua
 
 ## Assignment
 Cream un fisier compose.yaml cu urmatorul continut:
-
 ```bash
 version: '3.8'
 
@@ -61,6 +60,18 @@ services:
     ports:
       - "80:80"
 ```
+
+## 1. Installing and Configuring Jenkins
+Vom folosi Jenkins pentru a gestiona toate etapele de automatizare. Cream serviciul jenkins-controller în fișierul compose.yaml 
+(sau docker-compose.yaml), lansam containerul și îl configuram.
+
+Lansam serviciul Jenkins folosind Docker Compose:
+```bash
+docker-compose up -d jenkins-controller
+```
+<img width="1885" height="475" alt="image" src="https://github.com/user-attachments/assets/a27cbc17-e02e-4291-a3b5-d6d81d31380b" />
+
+
 
 
 
