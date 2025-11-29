@@ -1,0 +1,54 @@
+SSHLauncher{host='ssh-agent', port=22, credentialsId='09f1843c-68fc-4ced-ab69-34291a1fcb4e', jvmOptions='', javaPath='', prefixStartSlaveCmd='', suffixStartSlaveCmd='', launchTimeoutSeconds=60, maxNumRetries=10, retryWaitTime=15, sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy, tcpNoDelay=true, trackCredentials=true}
+[11/29/25 10:56:13] [SSH] Opening SSH connection to ssh-agent:22.
+[11/29/25 10:56:13] [SSH] WARNING: SSH Host Keys are not being verified. Man-in-the-middle attacks may be possible against this connection.
+[11/29/25 10:56:13] [SSH] Authentication successful.
+[11/29/25 10:56:13] [SSH] The remote user's environment is:
+BASH=/usr/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:extquote:force_fignore:globasciiranges:globskipdots:hostcomplete:interactive_comments:patsub_replacement:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=([0]="0")
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_EXECUTION_STRING=set
+BASH_LINENO=()
+BASH_LOADABLES_PATH=/usr/local/lib/bash:/usr/lib/bash:/opt/local/lib/bash:/usr/pkg/lib/bash:/opt/pkg/lib/bash:.
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="5" [1]="2" [2]="21" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='5.2.21(1)-release'
+DIRSTACK=()
+EUID=1001
+GROUPS=()
+HOME=/home/jenkins
+HOSTNAME=e57761a87c7e
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+LANG=C.UTF-8
+LOGNAME=jenkins
+MACHTYPE=x86_64-pc-linux-gnu
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PIPESTATUS=([0]="0")
+PPID=26
+PS4='+ '
+PWD=/home/jenkins
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments
+SHLVL=1
+SSH_CLIENT='172.23.0.2 36282 22'
+SSH_CONNECTION='172.23.0.2 36282 172.23.0.3 22'
+TERM=dumb
+UID=1001
+USER=jenkins
+_=']'
+[11/29/25 10:56:13] [SSH] Starting sftp client.
+[11/29/25 10:56:13] [SSH] Remote file system root /home/jenkins/workspace does not exist. Will try to create it...
+[11/29/25 10:56:13] [SSH] Copying latest remoting.jar...
+[11/29/25 10:56:13] [SSH] Copied 1,398,060 bytes.
+Expanded the channel window size to 4MB
+[11/29/25 10:56:13] [SSH] Starting agent process: cd "/home/jenkins/workspace" && java  -jar remoting.jar -workDir /home/jenkins/workspace -jar-cache /home/jenkins/workspace/remoting/jarCache
+bash: line 1: java: command not found
+Agent JVM has terminated. Exit code=127
+[11/29/25 10:56:13] Launch failed - cleaning up connection
+[11/29/25 10:56:13] [SSH] Connection closed.

@@ -1,0 +1,54 @@
+SSHLauncher{host='ansible-agent', port=22, credentialsId='09f1843c-68fc-4ced-ab69-34291a1fcb4e', jvmOptions='', javaPath='', prefixStartSlaveCmd='', suffixStartSlaveCmd='', launchTimeoutSeconds=60, maxNumRetries=10, retryWaitTime=15, sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy, tcpNoDelay=true, trackCredentials=true}
+[11/29/25 11:22:50] [SSH] Opening SSH connection to ansible-agent:22.
+[11/29/25 11:22:50] [SSH] WARNING: SSH Host Keys are not being verified. Man-in-the-middle attacks may be possible against this connection.
+[11/29/25 11:22:50] [SSH] Authentication successful.
+[11/29/25 11:22:50] [SSH] The remote user's environment is:
+BASH=/usr/bin/bash
+BASHOPTS=checkwinsize:cmdhist:complete_fullquote:extquote:force_fignore:globasciiranges:globskipdots:hostcomplete:interactive_comments:patsub_replacement:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=([0]="0")
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_EXECUTION_STRING=set
+BASH_LINENO=()
+BASH_LOADABLES_PATH=/usr/local/lib/bash:/usr/lib/bash:/opt/local/lib/bash:/usr/pkg/lib/bash:/opt/pkg/lib/bash:.
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="5" [1]="2" [2]="21" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='5.2.21(1)-release'
+DIRSTACK=()
+EUID=1001
+GROUPS=()
+HOME=/home/jenkins
+HOSTNAME=7c64dfefcd93
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+LANG=C.UTF-8
+LOGNAME=jenkins
+MACHTYPE=x86_64-pc-linux-gnu
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PIPESTATUS=([0]="0")
+PPID=50
+PS4='+ '
+PWD=/home/jenkins
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments
+SHLVL=1
+SSH_CLIENT='172.23.0.2 36500 22'
+SSH_CONNECTION='172.23.0.2 36500 172.23.0.4 22'
+TERM=dumb
+UID=1001
+USER=jenkins
+_=']'
+[11/29/25 11:22:50] [SSH] Starting sftp client.
+[11/29/25 11:22:50] [SSH] Copying latest remoting.jar...
+Source agent hash is A9B8DE8E38DD33F0B51C1374B8CDA6AB. Installed agent hash is A9B8DE8E38DD33F0B51C1374B8CDA6AB
+Verified agent jar. No update is necessary.
+Expanded the channel window size to 4MB
+[11/29/25 11:22:50] [SSH] Starting agent process: cd "/home/jenkins/workspace" && java  -jar remoting.jar -workDir /home/jenkins/workspace -jar-cache /home/jenkins/workspace/remoting/jarCache
+bash: line 1: java: command not found
+Agent JVM has terminated. Exit code=127
+[11/29/25 11:22:50] Launch failed - cleaning up connection
+[11/29/25 11:22:50] [SSH] Connection closed.

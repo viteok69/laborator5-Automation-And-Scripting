@@ -1,0 +1,48 @@
+SSHLauncher{host='ansible-agent', port=22, credentialsId='09f1843c-68fc-4ced-ab69-34291a1fcb4e', jvmOptions='', javaPath='', prefixStartSlaveCmd='', suffixStartSlaveCmd='', launchTimeoutSeconds=60, maxNumRetries=10, retryWaitTime=15, sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy, tcpNoDelay=true, trackCredentials=true}
+[11/29/25 11:24:50] [SSH] Opening SSH connection to ansible-agent:22.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 10 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 9 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 8 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 7 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 6 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 5 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 4 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 3 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 2 more retries left.
+ansible-agent: Name or service not known
+SSH Connection failed with IOException: "ansible-agent: Name or service not known", retrying in 15 seconds. There are 1 more retries left.
+ansible-agent: Name or service not known
+ERROR: Connection is not established!
+java.lang.IllegalStateException: Connection is not established!
+	at PluginClassLoader for trilead-api//com.trilead.ssh2.Connection.getRemainingAuthMethods(Connection.java:1002)
+	at PluginClassLoader for ssh-credentials//com.cloudbees.jenkins.plugins.sshcredentials.impl.TrileadSSHPasswordAuthenticator.canAuthenticate(TrileadSSHPasswordAuthenticator.java:83)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)
+	at java.base/java.util.Spliterators$IteratorSpliterator.tryAdvance(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(Unknown Source)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.base/java.util.stream.ReferencePipeline.findFirst(Unknown Source)
+	at PluginClassLoader for ssh-credentials//com.cloudbees.jenkins.plugins.sshcredentials.SSHAuthenticator.newInstance(SSHAuthenticator.java:222)
+	at PluginClassLoader for ssh-credentials//com.cloudbees.jenkins.plugins.sshcredentials.SSHAuthenticator.newInstance(SSHAuthenticator.java:173)
+	at PluginClassLoader for ssh-slaves//hudson.plugins.sshslaves.SSHLauncher.openConnection(SSHLauncher.java:890)
+	at PluginClassLoader for ssh-slaves//hudson.plugins.sshslaves.SSHLauncher.lambda$launch$0(SSHLauncher.java:446)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+[11/29/25 11:28:19] Launch failed - cleaning up connection
+[11/29/25 11:28:19] [SSH] Connection closed.

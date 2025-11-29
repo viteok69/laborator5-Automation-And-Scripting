@@ -1,0 +1,38 @@
+---
+- name: 1. Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: 2. Install required packages (Apache2, PHP and extensions)
+  apt:
+    name:
+      - apache2
+      - php
+      - libapache2-mod-php
+      - php-mysqli
+      - php-cli
+      - php-mbstring
+      - php-xml
+    state: present
+  notify: Restart Apache
+
+- name: 3. Create the web root directory
+  file:
+    path: /var/www/html
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: '0755'
+
+- name: 4. Copy custom Apache Virtual Host configuration file
+  template:
+    src: default.conf.j2
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: Restart Apache
+
+# Handler:
+- name: Restart Apache
+  service:
+    name: apache2
+    state: restarted

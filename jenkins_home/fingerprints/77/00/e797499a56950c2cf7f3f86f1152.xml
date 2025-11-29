@@ -1,0 +1,14 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2025-11-29 10:44:48.513 UTC</timestamp>
+  <md5sum>7700e797499a56950c2cf7f3f86f1152</md5sum>
+  <fileName>Credential id=f7944211-75fd-4749-adee-c26ef9e8d00b name=jenkins/******</fileName>
+  <usages/>
+  <facets>
+    <com.cloudbees.plugins.credentials.fingerprints.NodeCredentialsFingerprintFacet plugin="credentials@1453.v9b_a_29777a_b_fd">
+      <timestamp>1764413210907</timestamp>
+      <nodeName>ssh-agent</nodeName>
+      <timestamp0>1764413150852</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.NodeCredentialsFingerprintFacet>
+  </facets>
+</fingerprint>

@@ -1,0 +1,29 @@
+ERROR: Launching agent process aborted.
+Also:   java.lang.Throwable: launched here
+		at hudson.slaves.SlaveComputer._connect(SlaveComputer.java:287)
+		at hudson.model.Computer.connect(Computer.java:442)
+		at hudson.slaves.SlaveComputer.tryReconnect(SlaveComputer.java:860)
+		at hudson.slaves.RetentionStrategy$Always.check(RetentionStrategy.java:173)
+		at hudson.slaves.RetentionStrategy$Always.check(RetentionStrategy.java:161)
+		at hudson.slaves.ComputerRetentionWork$1.run(ComputerRetentionWork.java:78)
+		at hudson.model.Queue._withLock(Queue.java:1412)
+		at hudson.model.Queue.withLock(Queue.java:1286)
+		at hudson.slaves.ComputerRetentionWork.doAperiodicRun(ComputerRetentionWork.java:70)
+		at hudson.model.AperiodicWork.doRun(AperiodicWork.java:92)
+		at hudson.triggers.SafeTimerTask.run(SafeTimerTask.java:92)
+		at jenkins.security.ImpersonatingScheduledExecutorService$1.run(ImpersonatingScheduledExecutorService.java:67)
+		at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+		at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+		at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+java.lang.InterruptedException: Validate configuration:
+The Host must be specified
+
+	at PluginClassLoader for ssh-slaves//hudson.plugins.sshslaves.SSHLauncher.checkConfig(SSHLauncher.java:930)
+	at PluginClassLoader for ssh-slaves//hudson.plugins.sshslaves.SSHLauncher.launch(SSHLauncher.java:423)
+	at hudson.slaves.SlaveComputer.lambda$_connect$0(SlaveComputer.java:298)
+	at jenkins.util.ContextResettingExecutorService$2.call(ContextResettingExecutorService.java:46)
+	at jenkins.security.ImpersonatingExecutorService$2.call(ImpersonatingExecutorService.java:80)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)

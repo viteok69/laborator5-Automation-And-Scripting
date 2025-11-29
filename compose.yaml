@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  jenkins-controller:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080" 
+      - "50000:50000" 
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock 
+    container_name: jenkins-controller
+
+  ssh-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.ssh_agent
+    container_name: ssh-agent
+    ports:
+      - "2222:22" 
+
+  ansible-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.ansible_agent
+    container_name: ansible-agent
+    ports:
+      - "2223:22" 
+
+  test-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.test_server
+    container_name: test-server
+    ports:
+      - "80:80" 

@@ -1,0 +1,30 @@
+FROM ubuntu:latest
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update && apt install -y \
+    openssh-server \
+    php-cli \
+    git \
+    wget \
+    unzip \
+    libxml2-dev \
+    php-mbstring php-xml php-zip \
+    default-jre \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://getcomposer.org/installer -O composer-setup.php \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+RUN mkdir -p /var/run/sshd
+
+RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
+
+RUN echo "KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1" >> /etc/ssh/sshd_config
+
+RUN useradd -m -s /bin/bash jenkins && echo "jenkins:password" | chpasswd
+RUN usermod -aG sudo jenkins
+
+EXPOSE 22
+
+CMD ["/usr/sbin/sshd", "-D"]

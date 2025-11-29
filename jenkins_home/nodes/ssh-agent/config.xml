@@ -1,0 +1,22 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<slave>
+  <name>ssh-agent</name>
+  <description>agent ssh
+</description>
+  <remoteFS>/home/jenkins/workspace</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@3.1085.vc64d040efa_85">
+    <host>ssh-agent</host>
+    <port>22</port>
+    <credentialsId>09f1843c-68fc-4ced-ab69-34291a1fcb4e</credentialsId>
+    <launchTimeoutSeconds>60</launchTimeoutSeconds>
+    <maxNumRetries>10</maxNumRetries>
+    <retryWaitTime>15</retryWaitTime>
+    <sshHostKeyVerificationStrategy class="hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy"/>
+    <tcpNoDelay>true</tcpNoDelay>
+  </launcher>
+  <label>ssh-agent</label>
+  <nodeProperties/>
+</slave>
