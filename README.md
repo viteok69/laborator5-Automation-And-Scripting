@@ -337,6 +337,11 @@ pipeline {
 Acest script va rula pe ssh-agent.
 
 ## 7. Pipeline for Test Server Configuration Using Ansible
+În urma rezolvării problemelor, Job-ul Install-TestServer-Infra a rulat cu succes (STATUS: SUCCESS). Serverul de test este acum configurat și pregătit pentru deploy-ul aplicației PHP.
+
+<img width="1446" height="153" alt="image" src="https://github.com/user-attachments/assets/893de31c-2234-4d9c-8bbe-a6b29b873206" />
+
+## 8. Pipeline for Deploying PHP Project to Test Server
 
 
 
