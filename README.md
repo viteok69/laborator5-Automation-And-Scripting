@@ -71,6 +71,19 @@ docker-compose up -d jenkins-controller
 ```
 <img width="1885" height="475" alt="image" src="https://github.com/user-attachments/assets/a27cbc17-e02e-4291-a3b5-d6d81d31380b" />
 
+Deschidem browser-ul și navigam la http://localhost:8080 :
+<img width="1235" height="813" alt="image" src="https://github.com/user-attachments/assets/d1142fed-4a47-47bd-9dc8-2eb24af7c76c" />
+
+Vedem ecranul de deblocare Jenkins. Trebuie să gasim parola de administrator generată automat. Folosim comanda:
+```bash
+docker exec jenkins-controller cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+Alagem Select plugins to install. Ne asiguram dacă sunt prezente următoarele plugin-uri: Docker Pipeline, GitHub Integration, SSH Agent. Dupa tastam Install:
+<img width="1225" height="791" alt="image" src="https://github.com/user-attachments/assets/891a2513-5477-4e58-811c-78a9b014b19e" />
+
+După instalare plugin-urilor, cream utilizatorul administrator.
+
 
 
 
