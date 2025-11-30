@@ -1,27 +1,21 @@
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Instalare SSH Server și Sudo
 RUN apt update && apt install -y \
     openssh-server \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
-# Configurare SSH: Doar autentificare cu cheie
 RUN mkdir -p /var/run/sshd
 RUN echo 'PermitRootLogin no' >> /etc/ssh/sshd_config
 RUN echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
 
-# Creare user 'ansible' (userul pe care Ansible se va conecta)
 RUN useradd -m -s /bin/bash ansible
-# Acordare permisiuni sudo fără parolă
 RUN echo "ansible ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# Configurare cheie publică (Injectarea cheii pentru Ansible Agent)
 RUN mkdir -p /home/ansible/.ssh
 RUN chown -R ansible:ansible /home/ansible/.ssh
 RUN chmod 700 /home/ansible/.ssh
-# Copiază și adaugă cheia publică în authorized_keys
 COPY id_rsa_ansible_to_test.pub /tmp/ansible_key.pub
 RUN cat /tmp/ansible_key.pub >> /home/ansible/.ssh/authorized_keys \
     && chown ansible:ansible /home/ansible/.ssh/authorized_keys \
