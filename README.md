@@ -407,7 +407,8 @@ pipeline {
 
 ## Raspunsuri la intrebari
 
-Care sunt avantajele utilizării Ansible pentru configurarea serverului?
+--  Care sunt avantajele utilizării Ansible pentru configurarea serverului?
+
 Ansible este un instrument de automatizare extrem de eficient, care garantează starea dorită, aplicând schimbări doar când e necesar și pe simplitate.
 
 Ce alte module Ansible există pentru gestionarea configurației?
