@@ -405,6 +405,23 @@ pipeline {
 }
 ```
 
+## Raspunsuri la intrebari
+
+Care sunt avantajele utilizării Ansible pentru configurarea serverului?
+Ansible este un instrument de automatizare extrem de eficient, care garantează starea dorită, aplicând schimbări doar când e necesar și pe simplitate.
+
+Ce alte module Ansible există pentru gestionarea configurației?
+Management Pachete: apt, yum (Instalează/șterge software, ex: Apache2, PHP).
+Management Servicii: service (Pornire, oprire, repornire servicii, ex: apache2).
+Management Șabloane: template (Generează fișiere de configurare dinamice, ex: Virtual Host-ul Apache).
+Management Utilizatori: user, authorized_key (Configurează accesul SSH, creează utilizatori).
+
+Ce probleme ați întâmpinat la crearea manualului de joc Ansible și cum le-ați rezolvat?
+Eșec SSH din cauza schimbării constante a amprentei (Host Key) a containerului test-server. Solutie: Dezactivarea Host Key Checking în Pipeline: export ANSIBLE_HOST_KEY_CHECKING=False.
+Cheia privată SSH avea un format modern incompatibil cu mediul Jenkins/Docker. Solutie: Conversia cheii private la formatul ssh-keygen -m PEM și actualizarea credențialului.
+Playbook-ul apela Handler-ul Restart Apache fără ca acesta să fie definit în structura rolului. Solutie: Crearea fișierului handlers/main.yaml și definirea Handler-ului necesar în interiorul acestuia.
+
+
 
 
 
