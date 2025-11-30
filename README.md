@@ -342,6 +342,68 @@ Acest script va rula pe ssh-agent.
 <img width="1446" height="153" alt="image" src="https://github.com/user-attachments/assets/893de31c-2234-4d9c-8bbe-a6b29b873206" />
 
 ## 8. Pipeline for Deploying PHP Project to Test Server
+Creează un pipeline Jenkins pentru a implementa (deploi) proiectul PHP pe serverul de testare. Pentru aceasta, creează un fișier php_deploy_pipeline.groovy în directorul pipelines.
+Pipeline-ul ar trebui să includă următoarele etape (stages):
+
+Clonarea depozitului (repository) cu proiectul PHP.
+Copierea fișierelor proiectului pe serverul de testare.
+Configurarea proiectului pe serverul de testare (dacă este necesar).
+
+Implementarea codului proiectului pe serverul de testare poate fi efectuată folosind Ansible.
+
+Cream fisierul pipeline deploy_application_pipeline.groovy cu urmatorul continut:
+```bash
+def ANSIBLE_HOSTS = 'ansible/hosts'
+def APP_ARTIFACT = 'deploy-artifact.zip'
+def REMOTE_WEB_ROOT = '/var/www/html/'
+
+pipeline {
+    agent { label 'ansible-agent' } 
+    options {
+        skipDefaultCheckout true
+    }
+    stages {
+        stage('Checkout Artifact') {
+            steps {
+                script {
+                    def buildJob = build job: 'PHP-Build-and-Test', wait: true
+                    
+                    archiveArtifacts artifacts: APP_ARTIFACT
+                    
+                    sh "cp -f ${buildJob.artifacts[0].fileName} ${APP_ARTIFACT}"
+                    
+                    echo "Artifact ${APP_ARTIFACT} preluat."
+                }
+            }
+        }
+
+        stage('Deploy Application') {
+            steps {
+                script {
+                    sshagent(['ANSIBLE_TO_TEST_SERVER_CREDENTIAL_ID']) {
+                        
+                        echo "Running Ansible command to deploy application..."
+                        
+                        sh "scp -o StrictHostKeyChecking=no ${APP_ARTIFACT} ansible@test-server:/tmp/${APP_ARTIFACT}"
+                        
+                        sh "ssh -o StrictHostKeyChecking=no ansible@test-server 'unzip -o /tmp/${APP_ARTIFACT} -d /tmp/app_deploy && sudo rm -rf ${REMOTE_WEB_ROOT}/* && sudo mv /tmp/app_deploy/* ${REMOTE_WEB_ROOT} && sudo rm -rf /tmp/${APP_ARTIFACT} /tmp/app_deploy'"
+                        
+                        echo "Deployment complete. Application available at test-server:80."
+                    }
+                }
+            }
+        }
+    }
+    post {
+        success {
+            echo "Application deployment to Test Server completed successfully."
+        }
+        failure {
+            echo "Deployment failed. Check SSH/SCP connection details."
+        }
+    }
+}
+```
 
 
 
